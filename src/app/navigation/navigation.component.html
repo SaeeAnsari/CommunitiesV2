@@ -1,0 +1,56 @@
+<div class="dropdown clearfix ListHeadingLeftSpacing ListHeadingColor"><br>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-bottom: 5px; *width: 180px;">
+<div>
+  <h6>My Communities</h6>
+</div>
+<li *ngFor="let menu of myCommunities"><a tabindex="-1" href="#">{{menu.Menu}}</a></li>
+<li class="divider">Featured</li>
+<li *ngFor="let featured of featuredCommunities"><a tabindex="-1" href="#">{{featured.Menu}}</a></li>
+</ul>
+<br>
+</div>
+
+
+
+<!-- /well -->
+<!--
+
+
+
+<div class="well" style="max-width: 340px; padding: 8px 0;">
+<ul class="nav nav-list" *ngFor="let menu of leftMenuItems">
+  <div [hidden]="menu.isHeading"><li class="nav-header">{{menu.Menu}}</li></div>
+  <div [hidden]="!menu.isHeading"><li ><a href="#">{{menu.Menu}}</a></li></div> 
+</ul>
+</div>
+
+<div class="well" style="max-width: 340px; padding: 8px 0;">
+              <ul class="nav nav-list">
+                <li class="nav-header">List header</li>
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Library</a></li>
+                <li><a href="#">Applications</a></li>
+                <li class="nav-header">Another list header</li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Settings</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Help</a></li>
+              </ul>
+            </div>
+
+
+
+<div class="well" style="max-width: 340px; padding: 8px 0;">
+<ul class="nav nav-list" *ngFor="let menu of leftMenuItems">
+  <li class="nav-header">{{menu.Menu}}</li>
+</ul>
+</div>
+
+ 
+
+<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205" *ngFor="let menu of menuItems">
+    
+  <li role="presentation"><a href="#">{{menu.Menu}}</a></li>
+
+</ul>
+-->

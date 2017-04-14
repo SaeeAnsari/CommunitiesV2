@@ -1,0 +1,33 @@
+<div class="container">
+  <section id="header">
+    <h2>Users</h2>
+  </section>
+  <section id="searchUsers" class="col-md-12  well">
+    <br><br>
+    <div class="col-md-8">
+      <div class="CommentPost">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for..." [(ngModel)]="searchVal">
+          <span class="input-group-btn">
+             <button class="btn btn-default" type="button" (click)="bindUserGrid()">Go!</button>     
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <button id="addUser" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;Add User</button>
+    </div>
+  </section>
+
+  <br><br><br><br>
+
+  <section id="searchList well">
+    <div>
+      <div *ngFor="let item of userItems">
+        <user-search-item ID="{{item.id}}" Name='{{item.firstName + " " + item.lastName}}' Image=''></user-search-item>
+      </div>
+    </div>
+  </section>
+</div>
+
+

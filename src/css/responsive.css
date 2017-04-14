@@ -1,0 +1,272 @@
+
+	/****** Default Layout: 992px. ******/
+
+	
+	
+
+	/******		Tablet Layout: 768px. ******/
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+.container{
+	width:750px;
+	margin:0 auto;
+}
+
+.gallery-text {
+    width: 40%;
+    float: right;
+    padding: 26px 25px;
+    background: #ea8f48;
+    height: 337px;
+}
+.gallery-right-top-item {
+    width: 40%;
+    padding: 25px;
+	height: 240px;
+}
+.gallery-right-top {
+    overflow: hidden;
+    margin: 10px 0;
+}
+.gallery-right-top-item h2 {
+    font-size: 15px;
+}
+.gallery-right-top-item p {
+    font-size: 11px;
+    text-align: justify;
+}
+
+.gallery-right-top-item-imgg{
+	width: 60%;
+}
+
+.gallery-right {
+    width: 100%;
+    height: inherit;
+    float: left;
+}
+
+.gallery-right-bottom-item {
+    width: 100%;
+    height: 235px;
+    float: left;
+    background: url(../img/p3/gallery-right-bottom-item-bg.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 10px;
+}
+.gallery-right-bottom-item p, .gallery-right-bottom-item-2 p {
+    margin-top: 180px;
+    padding-top: 14px;
+}
+.gallery-right-bottom-item-2 {
+    width: 100%;
+    height: 235px;
+    float: right;
+    margin-left: 0;
+   
+    background-size: 719px 258px;
+    background-position: center;
+	margin-bottom: 10PX;
+}
+.comment {
+    display: none;
+}
+#messages{
+background:#fff;
+padding: 25px 0;
+display: block;
+}
+	}
+
+	/****** Mobile Layout: 320px.*******/
+
+@media only screen and (max-width: 767px) {
+.container{
+	width:300px;
+	margin:0 auto;
+}
+.post {
+    width: 100%;
+}
+.gallery-left {
+    width: 100%;
+}
+.gallery-text {
+	width: 100%;
+	padding: 30px;
+}
+.gallery-text p {
+	font-size: 12px;
+}
+.gallery-right-top-item {
+    width: 40%;
+    padding: 25px;
+	height: 240px;
+}
+.gallery-right-top {
+    overflow: hidden;
+    margin: 10px 0;
+}
+.gallery-right-top-item h2 {
+    font-size: 15px;
+}
+.gallery-right-top-item p {
+    font-size: 11px;
+    text-align: justify;
+}
+
+.gallery-right-top-item-imgg{
+	width: 100%;
+}
+
+.gallery-right {
+    width: 100%;
+    height: inherit;
+    float: left;
+}
+
+.gallery-right-bottom-item {
+    width: 100%;
+    height: 235px;
+    float: left;
+    background: url(../img/p3/gallery-right-bottom-item-bg.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 10px;
+}
+.gallery-right-bottom-item p, .gallery-right-bottom-item-2 p {
+    margin-top: 180px;
+    padding-top: 14px;
+}
+.gallery-right-bottom-item-2 {
+    width: 100%;
+    height: 235px;
+    float: right;
+    margin-left: 0;
+   
+    background-size: 719px 258px;
+    background-position: center;
+	margin-bottom: 10PX;
+}
+.comment {
+    display: none;
+}
+.display, .logo-3, .social{
+ display: none;
+}
+.video i {
+	left: 33%;
+}
+
+#messages{
+display: block;
+}
+.messages-body img {
+    margin-top: -18px;
+    width: 86px;
+}
+.messages-body a {
+    font-size: 30px;
+    padding: 0 10px;
+    color: #8c8c8c;
+}
+
+	}
+
+	/******		Wide Mobile Layout: 480px. ******/
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+.container{
+	width:450px;
+	margin:0 auto;
+}
+.post {
+    width: 100%;
+}
+.gallery-left {
+    width: 60%;
+    height: 337px;
+    float: left;
+    background: #EA8F48;
+    overflow: hidden;
+}
+.gallery-text {
+	width: 40%;
+	float: right;
+	padding: 10px 23px 0 8px;
+	background: #ea8f48;
+	height: 337px;
+}
+.gallery-text p {
+	font-size: 12px;
+}
+.gallery-right-top-item {
+    width: 40%;
+    padding: 25px;
+	height: 240px;
+}
+.gallery-right-top {
+    overflow: hidden;
+    margin: 10px 0;
+}
+.gallery-right-top-item h2 {
+    font-size: 15px;
+}
+.gallery-right-top-item p {
+    font-size: 11px;
+    text-align: justify;
+}
+
+.gallery-right-top-item-imgg{
+	width: 100%;
+}
+
+.gallery-right {
+    width: 100%;
+    height: inherit;
+    float: left;
+}
+
+.gallery-right-bottom-item {
+    width: 100%;
+    height: 235px;
+    float: left;
+    background: url(../img/p3/gallery-right-bottom-item-bg.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 10px;
+}
+.gallery-right-bottom-item p, .gallery-right-bottom-item-2 p {
+    margin-top: 180px;
+    padding-top: 14px;
+}
+.gallery-right-bottom-item-2 {
+    width: 100%;
+    height: 235px;
+    float: right;
+    margin-left: 0;
+   
+    background-size: 719px 258px;
+    background-position: center;
+	margin-bottom: 10PX;
+}
+.comment {
+    display: none;
+}
+.display, .logo-3, .social{
+ display: none;
+}
+.video i {
+	left: 40%;
+}
+#messages{
+display: block;
+}
+.messages-body a {
+    font-size: 45px;
+    padding: 0 17px;
+    color: #8c8c8c;
+}
+
+	}

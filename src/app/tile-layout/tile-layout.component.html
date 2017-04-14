@@ -1,0 +1,18 @@
+<!--<masonry>
+  <masonry-brick class="brick" *ngFor="let brick of bricks">
+-->
+<div *ngFor="let brick of bricks">
+  <div *ngIf="brick.imageURL === ''">
+    <cardNoImage cardTitle="{{brick.title}}" cardText="{{brick.text}}" cardLikeCount="{{brick.likeCount}}" cardDislikeCount="{{brick.dislikeCount}}"
+      cardCommentCount="{{brick.commentsCount}}" cardTotalViews="{{brick.totalViews}}">
+    </cardNoImage>
+  </div>
+
+  <div *ngIf="brick.imageURL != ''">
+    <cardImage cardText="{{brick.text}}" cardTitle="{{brick.title}}" cardImage="{{brick.imageURL}}" cardLikeCount="{{brick.likeCount}}"
+      cardDislikeCount="{{brick.dislikeCount}}" cardCommentCount="{{brick.commentsCount}}" cardTotalViews="{{brick.totalViews}}"></cardImage>
+  </div>
+</div>
+<!--  </masonry-brick>
+</masonry>
+-->

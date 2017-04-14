@@ -1,0 +1,28 @@
+<div class="col-md-6">
+  <postAddComment (commentAdded) = "loadComments_Temp()"></postAddComment>
+  <div *ngFor="let post of comments">
+    <div class="upload-info PostCommentInfo">
+      <div class="uploader-img PostCommentInfoImg">
+        <img src="{{post.userProfileImage}}" alt="image" class="img-circle" width="25px" height="25px" />
+      </div>
+      <div class="uploader-info PostCommenterInfo">
+        <h4><span class="label label-primary"><b>{{post.userDisplayName}}</b></span></h4> {{post.comment}}
+
+
+        <hr>
+
+
+        <div class="like PostCommenterInfoLike">
+
+          <div class="card-action" (onclick)="setLike()">
+            <div class="pull-left">
+              <button type="button" class="btn btn-link glyphicon glyphicon-thumbs-up" (click)="setLike(post.id, post.storyID)">{{post.likeCount}}</button>
+            </div>
+            <div class="pull-left"></div>
+            <div class="pull-left"> {{post.timestamp }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

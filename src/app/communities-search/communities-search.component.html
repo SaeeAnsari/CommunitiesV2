@@ -1,0 +1,34 @@
+<div class="container">
+
+
+  <section id="header">
+    <h2>Communities</h2>
+  </section>
+  <section id="searchCommunities" class="col-md-12  well">
+    <br><br>
+    <div class="col-md-8">
+      <div class="CommentPost">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for..." [(ngModel)]="searchVal">
+          <span class="input-group-btn">
+             <button class="btn btn-default" type="button" (click)="searchCommunities()">Go!</button>     
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <button id="addNewCommunity" class="btn btn-primary" routerLink="../Community"><span class="glyphicon glyphicon-plus-sign" ></span>&nbsp;&nbsp;Create Community</button>
+
+    </div>
+  </section>
+
+  <br><br><br><br>
+
+  <section id="searchList well">
+    <div class="container">
+      <div *ngFor="let item of searchItems">
+        <app-search-item ID={{item.id}} HeaderText={{item.name}} BodyText={{item.description}}></app-search-item>
+      </div>
+    </div>
+  </section>
+</div>

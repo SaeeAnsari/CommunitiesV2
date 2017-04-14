@@ -1,0 +1,5 @@
+<div class="container">
+  <div *ngFor="let item of userCommunities" class="col-sm-4">
+        <app-search-item ID={{item.id}} HeaderText={{item.name}} BodyText={{item.description}} ShowJoinButton="false"></app-search-item>
+      </div>
+</div>

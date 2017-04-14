@@ -1,0 +1,25 @@
+<header>
+  <div class="container">
+    <ul>
+      <li><a href="#">feed</a></li>
+    </ul>
+  </div>
+</header>
+
+<section id="feed_post">
+  <div class="container">
+    <!-- Feed Post Single Area -->
+
+
+    <div class="feed_post_area" *ngFor="let post of posts">
+      <div class="feed_post_header">
+        <app-user-tag ID="{{post.userID}}" ImageURL="{{post.userProfileImage}}" Name="{{post.userFullName}}" PostDate="{{post.postDate}}"></app-user-tag>
+        <app-user-post PostMessage="{{post.text}}" PostMediaURL="{{post.imageURL}}"></app-user-post>
+        <app-user-post-action LikeCount="{{post.likeCount}}" CommentCount="{{post.commentsCount}}" StoryID="{{post.storyID}}" UserID="userID"></app-user-post-action>
+        <div style="display:none">
+          <app-user-comments></app-user-comments>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+<form [formGroup]="postForm" novalidate (ngSubmit)="post(postForm.value, postForm.valid)">
+  <div class="post-top">
+    &nbsp;
+  </div>
+  <div class="post-body">
+    <div class="post-text">
+      <textarea class="form-control" rows="3" item-width="50%" id="post" placeholder="Whats on your mind?" formControlName="post"></textarea>
+    </div>
+  </div>
+  <div class="pull-right"><button type="submit" class="btn btn-primary">Post</button></div>
+</form>

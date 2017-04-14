@@ -1,0 +1,25 @@
+<form [formGroup]="communityForm" novalidate (ngSubmit)="saveCommunity(communityForm.value, communityForm.valid)">
+  <div class="form-group">
+    <h4>Create and Interact with new Communities</h4>
+    <i>Become the infinite possibilities that is you!</i><p>{{id}}</p>
+  </div>
+  <div>
+    <br>
+    <div class="form-group">
+      <input type="text" id="name" class="form-control" placeholder="What is the name of you Community?"
+      formControlName="name">
+    </div>
+    <div class="form-group">
+      <textarea class="form-control" rows="5" id="description" placeholder="What will this community be about?"
+      formControlName="description"></textarea>
+    </div>
+    <div class="btn-group" role="group">
+      <br>
+      <button id="addUsers" class="btn btn-success pull-right" [routerLink]="['../../UserSearch', id]" ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Manage Users in your Community</button>
+      <br>    
+      <button id="saveCommunity" type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span>Save</button>
+    </div>
+  </div>
+
+
+</form>

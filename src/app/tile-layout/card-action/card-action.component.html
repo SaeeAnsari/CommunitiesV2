@@ -1,0 +1,9 @@
+<div class="card-action">
+  <div class="pull-left"><a href="#"><span class="glyphicon glyphicon-thumbs-up"></span>{{cardLikeCount}}</a></div>
+<div class="pull-left" style="width:200px;"></div>
+<div class="pull-left" [hidden]="minimizeView"><a href="#"><span class="glyphicon glyphicon-thumbs-down"></span>{{cardDislikeCount}}</a></div>
+<div class="pull-left" style="width:20px;" [hidden]="minimizeView"></div>
+<div class="pull-left"><a href="" [hidden]="minimizeView"><span class="glyphicon glyphicon-edit"></span>{{cardCommentCount}}</a></div>
+<div class="pull-left" style="width:20px;"></div>
+<div class="pull-left"><a href=""><span class="glyphicon glyphicon-eye-open"></span>{{cardTotalViews}}</a></div>
+</div>

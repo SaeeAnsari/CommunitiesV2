@@ -1,0 +1,42 @@
+
+/*================================
+			Comments
+================================*/
+.comments {
+    padding: 15px 0;
+}
+.comments .media-object {
+    border: 1px solid #07e5d8;
+    border-radius: 50%;
+    height: 60px;
+    margin: 1px;
+    width: 60px;
+}
+.media-body > p {
+    color: #333333;
+    font-size: 18px;
+    font-weight: 300;
+}
+.media-body p strong {
+    color: #07e5d8;
+    font-weight: 700;
+    padding-right: 5px;
+    text-transform: capitalize;
+}
+.comments_reply > li {
+    display: inline-block;
+}
+.comments_reply li a {
+    color: #333333;
+    display: block;
+    font-size: 18px;
+    padding-right: 10px;
+}
+.comments_reply li:last-child a {
+    color: #b9b9b9;
+}
+.comments  .media {
+  margin-top: 20px;
+}
+
+

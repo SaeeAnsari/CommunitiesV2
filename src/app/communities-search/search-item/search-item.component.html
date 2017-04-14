@@ -1,0 +1,16 @@
+<div class="list-group-item">
+  <div class="row">
+
+    <div class="row">
+      <div class="col">
+        <a [routerLink]="['../Community', ID]">
+          <h4 class="list-group-item-heading"> {{HeaderText}} </h4>
+          <p class="list-group-item-text">{{BodyText}}</p>
+        </a>
+      </div>
+      <div class="col"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></div>
+    </div>
+
+    <div class="col"><button type="button" class="btn btn-success" (click)="joinCommunity()">+Join</button></div>
+  </div>
+</div>
