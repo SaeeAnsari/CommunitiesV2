@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 import { StoryService } from '../../services/story.service';
 import { UserService } from '../../services/user.service';
 import {UserCommentsComponent} from '../user-comments/user-comments.component';
@@ -14,6 +14,7 @@ import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class UserPostActionComponent implements OnInit {
+
 
   @Input() CommentCount: number;
   @Input() LikeCount: number;
@@ -42,6 +43,7 @@ export class UserPostActionComponent implements OnInit {
   }
 
   viewComments(storyID: number) {
+    
 
     const modalRef = this._modalService.open(UserCommentsComponent, { windowClass: 'dark-modal' } );   
     modalRef.componentInstance.storyID = storyID;

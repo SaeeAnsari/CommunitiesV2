@@ -1,22 +1,25 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { } from '../../interfaces/story-comment';
 import { CommentService } from '../../services/comment.service';
-
+import { UserService } from '../../services/user.service';
+import { StoryService } from '../../services/story.service';
 
 @Component({
   selector: 'app-user-comments',
   templateUrl: './user-comments.component.html',
   styleUrls: ['./user-comments.component.css'],
-  providers: [CommentService]
+  providers: [UserService, CommentService, StoryService]
 })
 export class UserCommentsComponent {
 
+  private commentPost: string;
   private comments = [];
   @Input() storyID: number;
 
-  constructor(private _commentService: CommentService) { }
+  constructor(private _commentService: CommentService, private _userService: UserService, private _storyService: StoryService) { }
 
   loadComments() {
+    this.comments = [];
     if (this.storyID != null && this.storyID > 0) {
       this._commentService.GetStoryComments(this.storyID).subscribe(comm => {
         comm.forEach(element => {
@@ -31,7 +34,7 @@ export class UserCommentsComponent {
             comment: element.Comments,
             timestamp: element.Timestamp,
             actions: {
-              supportCount: element.CommentSummary.SupportCount
+              supportCount: element.CommentSummary.SupportCount > 0 && element.CommentSummary.SupportCount || ''
             }
           }
           this.comments.push(comment);
@@ -39,4 +42,42 @@ export class UserCommentsComponent {
       });
     }
   }
+
+  setLike(storyID: number, commentID: number) {
+
+    this._userService.getLoggedinInUser().subscribe(s => {
+
+      let userID = s.ID;
+      let elemIndex = -1;
+      this._storyService.SetLike(storyID, userID, commentID).subscribe(sub => {
+        if (sub != undefined && sub == true) {
+
+          this.comments.forEach(function (element, index) {
+            if(element.id == commentID){
+              elemIndex = index; 
+            }
+          });
+
+          this.comments[elemIndex].actions.supportCount++;
+        }
+      });
+    });
+  }
+
+
+  postComment() {
+    if (this.storyID != null && this.storyID > 0) {
+
+      this._userService.getLoggedinInUser().subscribe(s => {
+
+        let userID = s.ID;
+        this._commentService.PostComment(this.storyID, userID, this.commentPost).subscribe(ret => {
+
+          this.loadComments();
+        });
+
+      });
+    }
+  }
 }
+

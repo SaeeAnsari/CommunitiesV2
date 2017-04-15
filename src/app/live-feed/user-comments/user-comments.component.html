@@ -1,9 +1,9 @@
 <div class="comments">
   <div class="col-lg-6">
     <div class="input-group post-comment">
-      <input type="text" class="form-control" placeholder="Search for...">
+      <input type="text" class="form-control" placeholder="Search for..." [(ngModel)]="commentPost">
       <span class="input-group-btn">
-        <button class="btn btn-primary" type="button">Post</button>
+        <button class="btn btn-primary" type="button" (click)="postComment()">Post</button>
       </span>
     </div>
   </div>
@@ -19,7 +19,8 @@
           <strong>{{comment.user.diplayName}}</strong> {{comment.comment}}
         </p>
         <ul class="comments_reply">
-          <li><a href="#">{{comment.actions.supportCount}} Like</a></li>
+          <li><button type="button" class="btn btn-link" (click)="setLike(comment.storyID, comment.id)"> ({{comment.actions.supportCount}}) Like</button>
+          
           <li><a href="#">Reply</a></li>
           <li><a href="#">{{comment.timestamp | date:'medium'}}</a></li>
         </ul>
