@@ -1,10 +1,10 @@
 
 .feed_post_content p {
   color: #3b3b3b;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 300;
   line-height: 28px;
-  padding: 30px 0;
+  padding: 0px 0;
 }
 .feed_post_content > img {
     border: 5px solid #dcdcdc;

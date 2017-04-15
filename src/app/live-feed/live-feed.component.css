@@ -82,7 +82,7 @@ header ul li a::before {
 .feed_post_area {
   background: #fff none repeat scroll 0 0;
   margin: 15px 0;
-  padding: 20px 10px;
+  padding: 5px 5px;
 }
 .feed_post_header {
   overflow: hidden;
