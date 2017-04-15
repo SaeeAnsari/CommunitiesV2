@@ -39,4 +39,11 @@
   margin-top: 20px;
 }
 
+.post-comment{
+    padding: 20px;
+}
+
+.media-end-border{
+    border-bottom: 1px solid #333333;
+}
 

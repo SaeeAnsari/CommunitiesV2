@@ -15,7 +15,7 @@ export class UserTagComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.ID);
+    
   }
 
 }

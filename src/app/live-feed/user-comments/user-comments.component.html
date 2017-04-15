@@ -1,34 +1,29 @@
 <div class="comments">
+  <div class="col-lg-6">
+    <div class="input-group post-comment">
+      <input type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" type="button">Post</button>
+      </span>
+    </div>
+  </div>
+
+  
   <ul class="media-list">
-    <li class="media">
+    <li class="media media-end-border" *ngFor="let comment of comments">
       <div class="media-left">
-        <a href="#"><img class="media-object" src="img/NewPost/comment/1.jpg" alt="..."></a>
+        <a href="#"><img class="media-object" src="{{comment.user.imageURL}}" alt="..."></a>
       </div>
       <div class="media-body">
         <p>
-          <strong>adam steve</strong> It is fantastic festival but for rich people, only they can reach there not like me......
+          <strong>{{comment.user.diplayName}}</strong> {{comment.comment}}
         </p>
         <ul class="comments_reply">
-          <li><a href="#">Like</a></li>
+          <li><a href="#">{{comment.actions.supportCount}} Like</a></li>
           <li><a href="#">Reply</a></li>
-          <li><a href="#">March 2 at 8:38pm</a></li>
+          <li><a href="#">{{comment.timestamp | date:'medium'}}</a></li>
         </ul>
-        <div class="media">
-          <div class="media-left media-middle wow fadeInUp">
-            <a href="#"><img class="media-object" src="img/NewPost/comment/2.jpg" alt="..."></a>
-
-          </div>
-          <div class="media-body">
-            <p>
-              <strong>adam steve</strong> Just Kidding ...
-            </p>
-            <ul class="comments_reply">
-              <li><a href="#">Like</a></li>
-              <li><a href="#">Reply</a></li>
-              <li><a href="#">March 2 at 8:38pm</a></li>
-            </ul>
-          </div>
-        </div>
+        <!-- Reply Element was here -->
       </div>
     </li>
   </ul>

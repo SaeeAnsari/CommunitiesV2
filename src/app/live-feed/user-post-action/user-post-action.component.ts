@@ -1,9 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { StoryService } from '../../services/story.service';
 import { UserService } from '../../services/user.service';
-
 import {UserCommentsComponent} from '../user-comments/user-comments.component';
-
 
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
@@ -25,9 +23,8 @@ export class UserPostActionComponent implements OnInit {
 
   constructor(private _storyService: StoryService, private _userService: UserService, private _modalService: NgbModal) { }
 
-
-
   ngOnInit() {
+
   }
 
   setLike(storyID: number) {
@@ -46,8 +43,9 @@ export class UserPostActionComponent implements OnInit {
 
   viewComments(storyID: number) {
 
-    const modalRef = this._modalService.open(UserCommentsComponent );   
-    modalRef.componentInstance.name = 'World';
-    
+    const modalRef = this._modalService.open(UserCommentsComponent, { windowClass: 'dark-modal' } );   
+    modalRef.componentInstance.storyID = storyID;
+    modalRef.componentInstance.loadComments();    
+  
   }
 }
