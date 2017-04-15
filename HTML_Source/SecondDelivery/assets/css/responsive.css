@@ -1,0 +1,78 @@
+/* Medium Layout: 1280px. */
+@media only screen and (min-width: 992px) and (max-width: 1200px) { 
+ 
+}
+/* Tablet Layout: 768px. */
+@media only screen and (min-width: 768px) and (max-width: 991px) { 
+
+   
+    
+ }
+/* Mobile Layout: 320px. */
+@media only screen and (max-width: 767px) { 
+	.feed_post_photo {
+		float: none;
+		margin: auto;
+	}
+	.feed_post_user {
+		text-align: center;
+	}
+	.feed_post_content p {
+		text-align: center;
+	}
+	.post_like a {
+		font-size: 14px;
+		margin: 5px 0;
+		padding: 0 5px;
+	}
+	.post_like a i.fa {
+		font-size: 20px;
+	}
+
+	.splash img {
+		width: 100%;
+	}
+
+	.soical_login a {
+		margin-bottom: 10px;
+		width: 100%;
+	}
+	.input_feild .form-control, .login_form .btn.btn-info{
+		min-height: 70px;
+	}
+	.soical_login a {
+		padding: 15px 20px;
+	}
+	.soical_login span::before, .soical_login span::after {
+		width: 40%;
+	}
+
+	
+	.single_item img {
+		float: none;
+		height: 100px;
+		width: 100px;
+	}
+	.single_item {
+		text-align: center;
+	}
+	.single_item > a {
+		font-size: 18px;
+		padding: 5px 30px;
+		position: inherit;
+		top: 0;
+	}
+	.content h3 {
+		padding-top: 0;
+	}
+	.content {
+		padding: 5px 0;
+	}
+
+
+
+}
+/* Wide Mobile Layout: 480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) { 
+
+ }

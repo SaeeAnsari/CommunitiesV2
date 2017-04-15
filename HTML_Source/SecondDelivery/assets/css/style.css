@@ -1,0 +1,579 @@
+/* 
+------------------------------------------
+   ------------------------------------------
+
+Template Name: " Post Feed template "
+Template URI: http://sobuj4u.com/
+Description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit..."
+Author: Al Amin Sobuj
+Author URI: http://sobuj4u.com/
+Version: 1.0
+
+------------------------------------------
+   ------------------------------------------
+*/
+
+*{padding:0; margin:0;}
+a, a:active, a:focus, a:hover{
+	outline:none;
+	text-decoration:none;
+}
+
+h1, h2, h3, h4, h5, p, ul{
+	padding:0;
+	margin:0;
+	list-style: none;
+}
+html, body{
+  height: 100%;
+  width: 100%;
+}
+body{
+    font-family: 'Lato', sans-serif;
+	font-size: 14px;
+}
+
+.container{
+	max-width: 768px;
+	margin: auto;
+}
+
+/*================================
+			Header
+================================*/
+header .container {
+    background: #07e5d8 none repeat scroll 0 0;
+}
+header ul li {
+    text-align: center;
+}
+header ul li a {
+    color: #fff;
+    display: block;
+    font-size: 50px;
+    padding: 40px;
+    text-align: center;
+    text-transform: capitalize;
+    position: relative;
+    font-family: 'Rajdhani', sans-serif;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+header ul li a:hover {
+  color: #FF931E;
+}
+header ul li a::before {
+	content: "\f104";
+	font-family: fontawesome;
+	left: 0;
+	position: absolute;
+}
+/*================================
+			Feed Post
+================================*/
+#feed_post .container,
+#communiti_list .container
+{
+	background: #dcdcdc;
+}
+.feed_post_area {
+  background: #fff none repeat scroll 0 0;
+  margin: 15px 0;
+  padding: 20px 10px;
+}
+.feed_post_header {
+  overflow: hidden;
+  position: relative;
+  padding: 2px;
+}
+.feed_post_photo {
+  float: left;
+  height: 100px;
+  margin-right: 30px;
+  width: 100px;
+}
+.feed_post_photo img {
+	border: 1px solid #07e5d8;
+	border-radius: 50%;
+	box-shadow: 0 0 2px #000;
+	height: 100%;
+	width: 100%;
+}
+.feed_post_photo img {
+    border: 1px solid #07e5d8;
+    border-radius: 50%;
+    box-shadow: 0 0 2px #000;
+    height: 100%;
+    width: 100%;
+}
+.feed_post_user {
+  padding-top: 20px;
+}
+.feed_post_user h2 {
+    color: #07e5d8;
+    font-size: 30px;
+}
+.feed_post_user h3 {
+    color: #9d9d9d;
+    font-size: 20px;
+}
+.feed_post_user h3 i.fa {
+    margin-left: 10px;
+}
+
+.feed_right_circle > a {
+    color: #9d9d9d;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+.feed_right_circle > a:hover {
+  color: #07e5d8;
+}
+.feed_right_circle {
+    display: inline-block;
+    position: absolute;
+    right: 15px;
+    top: 20px;
+}
+.feed_post_content p {
+  color: #3b3b3b;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 28px;
+  padding: 30px 0;
+}
+.feed_post_content > img {
+    border: 5px solid #dcdcdc;
+    border-radius: 5px;
+    width: 100%;
+}
+/*================================
+			Post like
+================================*/
+.post_like {
+    border-bottom: 1px solid #ccc;
+    padding: 25px;
+}
+.post_like li {
+    display: inline-block;
+    padding-right: 10px;
+}
+.post_like a {
+    color: #333333;
+    display: block;
+    font-size: 18px;
+    padding: 0 10px;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+.post_like a i.fa {
+	color: #07e5d8;
+	font-size: 25px;
+	padding-right: 5px;
+	-webkit-transition: .5s;
+	transition: .5s;
+}
+.post_like a:hover,
+.post_like a:hover i.fa{
+  color: #9d9d9d;
+}
+/*================================
+			Comments
+================================*/
+.comments {
+    padding: 15px 0;
+}
+.comments .media-object {
+    border: 1px solid #07e5d8;
+    border-radius: 50%;
+    height: 60px;
+    margin: 1px;
+    width: 60px;
+}
+.media-body > p {
+    color: #333333;
+    font-size: 18px;
+    font-weight: 300;
+}
+.media-body p strong {
+    color: #07e5d8;
+    font-weight: 700;
+    padding-right: 5px;
+    text-transform: capitalize;
+}
+.comments_reply > li {
+    display: inline-block;
+}
+.comments_reply li a {
+    color: #333333;
+    display: block;
+    font-size: 18px;
+    padding-right: 10px;
+}
+.comments_reply li:last-child a {
+    color: #b9b9b9;
+}
+.comments  .media {
+  margin-top: 20px;
+}
+
+/*================================
+      Splash Page
+================================*/
+.splash {
+  height: 100%;
+}
+.splash .container {
+  background: #e0e0e0 none repeat scroll 0 0;
+  height: 100%;
+}
+.splash img {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/*================================
+      Login Page
+================================*/
+#login_page .container{
+  background-color: #ccc;
+  background-image: url(../img/login/bg.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#login_page img {
+    padding: 180px 0 100px;
+}
+.soical_login {
+  font-weight: 700;
+  font-size: 34px;
+}
+.soical_login a {
+  background: #4751a9 none repeat scroll 0 0;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #fff;
+  display: inline-block;
+  font-weight: 700;
+  margin: 0 3px;
+  padding: 25px 20px;
+  transition: all 0.5s ease 0s;
+  width: 48%;
+}
+.soical_login a:hover{
+  background: #FF931E;
+}
+.soical_login i.fa {
+  padding-right: 20px;
+}
+.soical_login span {
+  color: #333333;
+  display: block;
+  position: relative;
+  padding: 10px 0;
+}
+.soical_login span::before {
+    background: #333333 none repeat scroll 0 0;
+    content: "";
+    height: 1px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45%;
+}
+.soical_login span::after {
+    background: #333333 none repeat scroll 0 0;
+    content: "";
+    height: 1px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45%;
+}
+.soical_login a.google_plus{
+  background: #e94132;
+}
+.soical_login a.google_plus:hover{
+  background: #FF931E;
+}
+.login_form {
+  padding-bottom: 100px;
+}
+.input_feild, .search_feild {
+    position: relative;
+}
+.input_feild i.fa {
+    color: #999999;
+    font-size: 35px;
+    left: 16px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.input_feild .form-control,
+.search_feild .form-control
+ {
+    border-radius: 10px;
+    font-size: 30px;
+    margin-bottom: 20px;
+    min-height: 100px;
+    padding-left: 60px;
+}
+.login_form .btn.btn-info {
+    background: #ff7162 none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 10px;
+    font-size: 30px;
+    min-height: 100px;
+    width: 100%;
+    transition: .5s;
+}
+.login_form .btn.btn-info:hover{
+  background: #FF931E;
+}
+.login_form a {
+    color: #333333;
+    display: inline-block;
+    font-size: 30px;
+    padding: 10px;
+    text-decoration: underline;
+    transition: all 0.5s ease 0s;
+}
+.login_form a:hover{
+  color: #4751a9;
+}
+footer {
+  background: #fff none repeat scroll 0 0;
+  bottom: 0;
+  padding: 15px 0;
+  position: fixed;
+  width: 100%;
+}
+footer ul {
+    overflow: hidden;
+}
+footer ul li {
+    float: left;
+    text-align: center;
+    width: 25%;
+}
+footer ul li a {
+    color: #333333;
+    display: inline-block;
+    font-size: 40px;
+    height: 65px;
+    line-height: 65px;
+    width: 65px;
+    position: relative;
+    transition: .5s;
+}
+footer ul li a:hover{
+  color: #FF931E;
+}
+footer li a span.comment_count {
+    background: #f70b0b none repeat scroll 0 0;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    right: 0;
+    top: 12px;
+    width: 20px;
+}
+.input_feild button {
+    left: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/*================================
+      communitiy search
+================================*/
+.search_feild {
+  margin: 20px 0;
+}
+.search_feild button {
+  background: transparent none repeat scroll 0 0;
+  border: medium none;
+  color: #999999;
+  font-size: 30px;
+  left: 20px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.search_feild .form-control{
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+#communiti_list .login_form {
+  padding-bottom: 0;
+}
+
+.single_item img {
+    border-radius: 50%;
+    float: left;
+    height: 135px;
+    margin-right: 11px;
+    width: 135px;
+}
+.memmber_group {
+  background: #fff none repeat scroll 0 0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 15px;
+  margin: 20px 0;
+}
+.content h3 {
+    font-size: 26px;
+    padding-top: 35px;
+}
+.content p {
+    color: #7e7e7e;
+    font-size: 26px;
+}
+.content {
+    position: relative;
+    top: 50%;
+}
+.single_item {
+    position: relative;
+    top: 50%;
+}
+.single_item > a {
+    background: #dcdcdc none repeat scroll 0 0;
+    border-radius: 5px;
+    color: #000;
+    display: inline-block;
+    font-size: 30px;
+    padding: 7px 40px;
+    position: absolute;
+    right: 15px;
+    top: 43px;
+    transition: all 0.5s ease 0s;
+}
+.single_item > a:hover {
+    background: #FF931E;
+}
+/*================================
+      communitiy creat
+================================*/
+.communiti_form{
+  padding-bottom: 100px;
+}
+.form-group label {
+    color: #333333;
+    font-size: 25px;
+    padding: 7px 0;
+    text-transform: capitalize;
+}
+.form-group label i.fa {
+    padding-right: 5px;
+}
+.form-group input {
+    min-height: 100px;
+}
+#text_area {
+    min-height: 250px;
+}
+.form-group p {
+    background: #fff none repeat scroll 0 0;
+    font-size: 30px;
+    padding: 100px 0;
+    position: relative;
+    text-align: center;
+}
+.form-group input, .form-group textarea, .form-group p{
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+.form-group input[type="file"] {
+    margin-bottom: 20px;
+    min-height: auto;
+    box-shadow: 0 0 0;
+    border: none;
+}
+.communiti_form button {
+    background: #e74c3c none repeat scroll 0 0;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 40px;
+    margin-top: 20px;
+    padding: 5px 0;
+    position: relative;
+    transition: all 0.5s ease 0s;
+    width: 100%;
+}
+.communiti_form button:hover{
+  background: #FF931E;
+  color: #fff;
+}
+.communiti_form button i.fa {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.Pagination ul{
+  text-align: center;
+  margin: 10px 0;
+}
+.Pagination li {
+  border: 1px solid #e74c3c;
+  border-radius: 50%;
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  transition: .5s;
+}
+.Pagination li.active {
+    background: #e74c3c none repeat scroll 0 0;
+}
+.Pagination li:hover {
+    background: #e74c3c none repeat scroll 0 0;
+}
+.Pagination a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
