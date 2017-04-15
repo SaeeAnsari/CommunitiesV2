@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-
-
 
 @Component({
   selector: 'app-user-comments',
@@ -10,9 +7,8 @@ import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class UserCommentsComponent {
 
-  constructor(public activeModal: NgbActiveModal) {}
+  constructor() {}
 
-//test
   
 
 }

@@ -46,7 +46,8 @@ export class UserPostActionComponent implements OnInit {
 
   viewComments(storyID: number) {
 
-    const modalRef = this._modalService.open(UserCommentsComponent);   
+    const modalRef = this._modalService.open(UserCommentsComponent );   
+    modalRef.componentInstance.name = 'World';
     
   }
 }
