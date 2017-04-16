@@ -1,25 +1,74 @@
-<form [formGroup]="communityForm" novalidate (ngSubmit)="saveCommunity(communityForm.value, communityForm.valid)">
-  <div class="form-group">
-    <h4>Create and Interact with new Communities</h4>
-    <i>Become the infinite possibilities that is you!</i><p>{{id}}</p>
+
+  <!-- Header -->
+	<header>
+		<div class="container headerText">
+			Create a new Community
+      <div>Become the infinite possibilities that is you!</div>
+		</div>
+	</header>
+
+<section id="communiti_list">
+  <div class="container">
+    <div class="communiti_form">
+      	<form [formGroup]="communityForm" novalidate (ngSubmit)="saveCommunity(communityForm.value, communityForm.valid)">
+        <div class="form-group">
+
+          <label for="name"><i class="fa fa-users"></i> Name your Community</label>
+          <input type="text" class="form-control fa fa-users" id="name" placeholder="What is the name of you Community?" formControlName="name">
+        </div>
+        <div class="form-group">
+          <label for="text_area"><i class="fa fa-file-text-o"></i> Describe your Community</label>
+          <textarea class="form-control" id="description" placeholder="What will this community be about?" formControlName="description"></textarea>
+        </div>
+        <div class="file-upload form-group">
+          <label for="exampleInputFile"><i class="fa fa-picture-o"></i> Add Cover Photo</label>
+          <input type="file" id="exampleInputFile">          
+        </div>
+        <button type="submit" class="btn btn-default">Next <i class="fa fa-arrow-circle-o-right"></i></button>
+      </form>
+      <div class="Pagination">
+        <ul>
+          <li class="active">
+            <a href="#"></a>
+          </li>
+          <li>
+            <a href="#"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div>
-    <br>
-    <div class="form-group">
-      <input type="text" id="name" class="form-control" placeholder="What is the name of you Community?"
-      formControlName="name">
-    </div>
-    <div class="form-group">
-      <textarea class="form-control" rows="5" id="description" placeholder="What will this community be about?"
-      formControlName="description"></textarea>
-    </div>
-    <div class="btn-group" role="group">
-      <br>
-      <button id="addUsers" class="btn btn-success pull-right" [routerLink]="['../../UserSearch', id]" ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Manage Users in your Community</button>
-      <br>    
-      <button id="saveCommunity" type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span>Save</button>
-    </div>
-  </div>
+</section>
+
+<footer>
+		<div class="container">
+			<ul>
+				<li><a href="#"><i class="fa fa-rss"></i></a></li>
+				<li><a href="#"><i class="fa fa-users"></i></a></li>
+				<li><a href="#"><i class="fa fa-list"></i></a></li>
+				<li>
+					<a href="#"><i class="fa fa-comment"></i>
+						<span class="comment_count">1</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</footer>
 
 
-</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

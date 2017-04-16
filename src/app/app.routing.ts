@@ -15,7 +15,8 @@ import {LiveFeedComponent} from './live-feed/live-feed.component';
 
 
 export const routing = RouterModule.forRoot([
-    {path: '', component: LiveFeedComponent},
+    {path: '', component: CommunitiesSearchComponent},
+    {path: 'Feed', component: LiveFeedComponent},
     {path: 'CardViewEdit', component: CardViewEditComponent},
     {path: 'CardViewEdit/:id', component: CardViewEditComponent},    
     {path: 'CommunitiesSearch', component: CommunitiesSearchComponent},

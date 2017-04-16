@@ -3,7 +3,7 @@ import { } from '../../interfaces/story-comment';
 import { CommentService } from '../../services/comment.service';
 import { UserService } from '../../services/user.service';
 import { StoryService } from '../../services/story.service';
-import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-user-comments',
@@ -54,8 +54,8 @@ export class UserCommentsComponent {
         if (sub != undefined && sub == true) {
 
           this.comments.forEach(function (element, index) {
-            if (element.id == commentID) {
-              elemIndex = index;
+            if(element.id == commentID){
+              elemIndex = index; 
             }
           });
 
@@ -81,10 +81,8 @@ export class UserCommentsComponent {
     }
   }
 
-  closeModal() {
-    alert('Not working, TODO fix later!');
+  closeModal(){
+    alert('still not working, TODO - Fix later!');
   }
-
-
 }
 
