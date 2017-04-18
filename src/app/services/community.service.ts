@@ -38,33 +38,33 @@ export class CommunityService {
   }
 
 
-   public GetAllCommunities(searchTerm: string, userID:number):Observable<any> {   
+  public GetAllCommunities(searchTerm: string, userID: number): Observable<any> {
 
     return this._http.get(this._url + '?userID=' + userID + '&searchTerm=' + searchTerm)
       .map(ret => ret.json());
-      
+
   }
 
 
-   public GetUserCommunities(userID: number):Observable<any> {
+  public GetUserCommunities(userID: number): Observable<any> {
     return this._http.get(this._baseURL + '/User/GetUserCommunities?userID=' + userID)
-      .map(ret => ret.json());      
+      .map(ret => ret.json());
   }
 
-  public GetCommunity(id: number){
+  public GetCommunity(id: number) {
     return this._http.get(this._url + '/' + id)
-    .map(ret=> ret.json());
+      .map(ret => ret.json());
   }
 
 
-  public SaveCommunity(community: Community) {
+  public SaveCommunity(community: Community): Observable<any> {
 
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
     let id: number;
 
-    this._http.post(
+    return this._http.post(
       this._url,
       JSON.stringify({
         Name: community.name,
@@ -74,14 +74,10 @@ export class CommunityService {
         Type: 2,
         ID: community.id
       }),
-      {headers: this.headers}
-    ).map(res => {
-      id = +res.json();
-    })
+      { headers: this.headers }
+    ).map(res => res.json())
       .catch(this.handleError)
-      .subscribe();
 
-      return id;
   }
 
 

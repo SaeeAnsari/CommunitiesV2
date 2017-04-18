@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommunityService } from '../services/community.service';
 import { FormGroup, FormControl, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms'
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { Community } from '../interfaces/community';
 import { UserService } from '../services/user.service';
 
@@ -19,7 +19,8 @@ export class CommunitiesSearchComponent implements OnInit {
 
 
 
-  constructor(private _fb: FormBuilder, private _searchService: CommunityService, private _userService: UserService) {
+  constructor(private _fb: FormBuilder, private _searchService: CommunityService, private _userService: UserService,
+  private _router:Router ) {
     this.searchVal = "";
   }
 
@@ -72,5 +73,9 @@ export class CommunitiesSearchComponent implements OnInit {
 
   userJoinedCommunity() {
     this.bindCommunitiesList();
+  }
+
+  addCommunities(){
+    this._router.navigate(['/Community']);
   }
 }

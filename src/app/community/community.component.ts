@@ -1,7 +1,7 @@
 
 import { Component, ElementRef, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule, Router } from '@angular/router';
 
 import { CommunityService } from '../services/community.service'
 
@@ -20,7 +20,7 @@ export class CommunityComponent implements OnInit {
   public events: any[] = []; // use later to display form changes
   //private communityService = new CommunityService();
 
-  constructor(private _fb: FormBuilder, private _communityService: CommunityService, private _route: ActivatedRoute) { }
+  constructor(private _fb: FormBuilder, private _communityService: CommunityService, private _route: ActivatedRoute, private _router:Router) { }
 
   private id: number;
   name: string;
@@ -68,8 +68,17 @@ export class CommunityComponent implements OnInit {
       model.id = this.id;
     }
 
-    this.id = this._communityService.SaveCommunity(model);
-  }
+    this._communityService.SaveCommunity(model)
+    .subscribe(sub=>{
+      var x = 0;
+      x = 22;
+      
+      this.id = sub;
 
-  
+      
+
+      this._router.navigate(['/UserSearch']);
+
+    })
+  }  
 }
