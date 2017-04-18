@@ -1,6 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import {UserService} from '../../services/user.service';
+import { UserService } from '../../services/user.service';
+
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+
+import { ActivatedRoute, Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-search-item',
@@ -9,30 +14,75 @@ import {UserService} from '../../services/user.service';
   providers: [UserService]
 })
 export class SearchItemComponent implements OnInit {
-@Input() HeaderText = "";
-@Input() BodyText = "";
-@Input() ID;
-@Input() ShowJoinButton: boolean
+  @Input() HeaderText = "";
+  @Input() BodyText = "";
+  @Input() ID;
+  @Input() Member;
 
-private existingUser: boolean = false;
+  @Output() CommunityChanged = new EventEmitter();
+
+  private buttonText: string;
+
+  private existingUser: boolean = false;
 
 
-  constructor(private _userService: UserService) { }
+  constructor(private _userService: UserService, private _modalService: NgbModal, private route: ActivatedRoute,
+                private router: Router) { }
 
   ngOnInit() {
-
-    console.log(this.ShowJoinButton);
+    if (this.Member == "true") {
+      this.buttonText = "View"
+    }
+    else {
+      this.buttonText = "Join";
+    }
   }
 
-  joinCommunity(){
-    this._userService.getLoggedinInUser().subscribe(sub=>{
+  joinCommunity() {
+    this._userService.getLoggedinInUser().subscribe(sub => {
 
       let userID: number = sub.ID;
 
-      this._userService.AddUsertoCommunity(userID, this.ID).subscribe(sub=>{
+      this._userService.AddUsertoCommunity(userID, this.ID).subscribe(sub => {
         this.existingUser = true;
-        return sub;
+        this.CommunityChanged.emit();
       });
-    });    
+    });
+  }
+
+  addUserToCommunity(contentPanel){
+     this._modalService.open(contentPanel).result.then((result) => {
+        if (`${result}` == "Yes") {
+          this.joinCommunity();
+        }
+      });
+  }
+
+  leaveCommunity(){
+    this._userService.getLoggedinInUser().subscribe(sub => {
+
+      let userID: number = sub.ID;
+
+      this._userService.RemoveUserFromCommunity(userID, this.ID).subscribe(sub => {
+        this.existingUser = true;
+        this.CommunityChanged.emit();
+      });
+    });
+  }
+
+  removeUserFromCommunity(contentPanel){
+    this._modalService.open(contentPanel).result.then((result) => {
+        if (`${result}` == "Yes") {
+          this.leaveCommunity();
+        }
+      });
+  }
+
+  navigate() {
+    if (this.Member == "true") {
+      let link = ['/Feed/' + this.ID];
+      this.router.navigate(link);
+    }
+   
   }
 }

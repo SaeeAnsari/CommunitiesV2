@@ -1,34 +1,31 @@
-<div class="container">
+<!-- 
+		Header
+	========================================= -->
+<header>
+  <div class="container headerText">
 
+    Search Communities
 
-  <section id="header">
-    <h2>Communities</h2>
-  </section>
-  <section id="searchCommunities" class="col-md-12  well">
-    <br><br>
-    <div class="col-md-8">
-      <div class="CommentPost">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for..." [(ngModel)]="searchVal">
-          <span class="input-group-btn">
-             <button class="btn btn-default" type="button" (click)="searchCommunities()">Go!</button>     
-          </span>
+  </div>
+</header>
+<!-- 
+		Communiti List
+	========================================= -->
+<section id="communiti_list">
+  <div class="container">
+    <div class="login_form">
+      <form action="#" method="post">
+        <div class="search_feild">
+          <input class="form-control" type="search" name="search" id="search" value="" placeholder="Search for..." [(ngModel)]="searchVal" [formControl]="searchInput" >
+          <button type="submit"><i class="fa fa-search" (click)="searchCommunities()"></i></button>
         </div>
-      </div>
+      </form>
     </div>
-    <div class="col-md-4">
-      <button id="addNewCommunity" class="btn btn-primary" routerLink="../Community"><span class="glyphicon glyphicon-plus-sign" ></span>&nbsp;&nbsp;Create Community</button>
 
+
+    <div *ngFor="let item of searchItems">
+      <app-search-item ID={{item.id}} HeaderText={{item.name}} BodyText={{item.description}} Member={{item.isMember}} (CommunityChanged)="userJoinedCommunity()"></app-search-item>
     </div>
-  </section>
-
-  <br><br><br><br>
-
-  <section id="searchList well">
-    <div class="container">
-      <div *ngFor="let item of searchItems">
-        <app-search-item ID={{item.id}} HeaderText={{item.name}} BodyText={{item.description}}></app-search-item>
-      </div>
-    </div>
-  </section>
-</div>
+  </div>
+</section>
+  

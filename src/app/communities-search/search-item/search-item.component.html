@@ -1,16 +1,31 @@
-<div class="list-group-item">
-  <div class="row">
-
-    <div class="row">
-      <div class="col">
-        <a [routerLink]="['../Community', ID]">
-          <h4 class="list-group-item-heading"> {{HeaderText}} </h4>
-          <p class="list-group-item-text">{{BodyText}}</p>
-        </a>
-      </div>
-      <div class="col"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></div>
+<div class="memmber_group" >
+  <div class="single_item" >
+    <div (click)="navigate()"><img src="https://cdn2.iconfinder.com/data/icons/flat-ui-free/128/Chat.png" alt="meber flaug" ></div>
+    <div class="content" >
+      <div (click)="navigate()"><h3 >{{HeaderText}}</h3></div>
+      <p>12,000 Members</p>
     </div>
 
-    <div class="col"><button type="button" class="btn btn-success" (click)="joinCommunity()">+Join</button></div>
+
+    <div *ngIf="Member == 'false'">
+      <button class="btn btn-link" (click)="addUserToCommunity(content)">Join</button>
+    </div>
+
+    <div *ngIf="Member == 'true'">
+      <button class="btn btn-link" (click)="removeUserFromCommunity(content)">Remove</button>
+    </div>
+
+
   </div>
 </div>
+
+<template #content let-c="close" let-d="dismiss">
+
+  <div class="modal-body">
+    <p>Are you sure?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="c('Yes')">Yes</button> <button type="button" class="btn btn-secondary"
+      (click)="c('No')">No</button>
+  </div>
+</template>

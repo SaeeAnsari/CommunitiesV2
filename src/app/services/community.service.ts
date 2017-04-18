@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Community } from '../interfaces/community';
+
 import { Http, Response, Headers, RequestOptions, URLSearchParams } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
@@ -37,10 +38,9 @@ export class CommunityService {
   }
 
 
-   public GetAllCommunities(searchTerm: string):Observable<any> {
+   public GetAllCommunities(searchTerm: string, userID:number):Observable<any> {   
 
-
-    return this._http.get(this._url + '?searchTerm=' + searchTerm)
+    return this._http.get(this._url + '?userID=' + userID + '&searchTerm=' + searchTerm)
       .map(ret => ret.json());
       
   }

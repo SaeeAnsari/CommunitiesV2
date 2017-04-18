@@ -38,6 +38,7 @@ import { UserPostActionComponent } from './Live-Feed/user-post-action/user-post-
 import { UserCommentsComponent } from './Live-Feed/user-comments/user-comments.component';
 
 import {NgbModule, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -71,7 +72,8 @@ import {NgbModule, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
     UserTagComponent,
     UserPostComponent,
     UserPostActionComponent,
-    UserCommentsComponent
+    UserCommentsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

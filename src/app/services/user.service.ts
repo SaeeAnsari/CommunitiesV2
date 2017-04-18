@@ -96,6 +96,22 @@ export class UserService {
   }
 
 
+  public RemoveUserFromCommunity(userID: number, communityID: number) {
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+
+
+    let data = new URLSearchParams();
+
+    return this._http.post(
+      this._url + '/RemoveUserFromCommunity?userID=' + userID + '&communityID=' + communityID,
+      data,
+      { headers: this.headers }
+    ).map(res => res.json())
+      .catch(this.handleError)
+  }
+
   private handleError(error: any) {
     let errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';

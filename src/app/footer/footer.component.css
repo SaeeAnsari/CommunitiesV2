@@ -1,0 +1,47 @@
+
+footer {
+  background: #fff none repeat scroll 0 0;
+  bottom: 0;
+  padding: 15px 0;
+  position: fixed;
+  width: 100%;
+}
+footer ul {
+    overflow: hidden;
+}
+footer ul li {
+    float: left;
+    text-align: center;
+    width: 25%;
+}
+footer ul li a {
+    color: #333333;
+    display: inline-block;
+    font-size: 40px;
+    height: 65px;
+    line-height: 65px;
+    width: 65px;
+    position: relative;
+    transition: .5s;
+}
+footer ul li a:hover{
+  color: #FF931E;
+}
+footer li a span.comment_count {
+    background: #f70b0b none repeat scroll 0 0;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    right: 0;
+    top: 12px;
+    width: 20px;
+}
+
+
+footer div{
+    border-top: 1px solid #f70b0b;
+}
