@@ -2,7 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { User } from '../interfaces/user';
 import { Observable } from 'rxjs/Observable';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule, Router } from '@angular/router';
+
+import { CommunityService } from '../services/community.service';
+import { FormGroup, FormControl, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms'
+import { Community } from '../interfaces/community';
+
 
 // Observable class extensions
 import 'rxjs/add/observable/of';
@@ -27,16 +32,24 @@ import 'rxjs/add/operator/switchMap';
 })
 export class UserSearchComponent implements OnInit {
 
-  private communityID: number;
+  private communityID: number = -1;
   private subscription;
   private userItems: User[] = [];
   searchVal: string;
+  searchInput = new FormControl();
 
-  constructor(private userService: UserService, private _route: ActivatedRoute) {
-    this.bindUserGrid();
+  constructor(private userService: UserService, private _route: ActivatedRoute, private _router:Router) {
+   
     this.searchVal = "";
     this.subscription = this._route.params.subscribe(params => {
-      this.communityID = +params["communityID"];
+
+      if(params['communityID']){
+        this.communityID = +params["communityID"];
+      }
+      else{
+        this.communityID = -1;
+      }
+      
     });
   }
 
@@ -48,8 +61,9 @@ export class UserSearchComponent implements OnInit {
     if (this.searchVal == undefined)
       this.searchVal = '';
 
+      
 
-    this.userService.GetAllActiveUsers(this.searchVal)
+    this.userService.GetAllActiveUsers(this.searchVal, this.communityID)
       .subscribe(list => {
 
         list.forEach(element => {
@@ -59,7 +73,9 @@ export class UserSearchComponent implements OnInit {
             firstName: element.FirstName,
             lastName: element.LastName,
             active: element.Active,
-            authenticationPortalID: element.AuthenticationPortalID
+            authenticationPortalID: element.AuthenticationPortalID,
+            imageURL: element.ImageURL,
+            alreadyMember: element.AlreadyMember
           };
 
           this.userItems.push(user);
@@ -70,6 +86,25 @@ export class UserSearchComponent implements OnInit {
   }
 
   ngOnInit() {
+    
+    this.searchInput.valueChanges
+      .debounceTime(1000)
+      .distinctUntilChanged()
+      .subscribe(va => {
+        
+        this.bindUserGrid();
+      });
+  }
+
+  userAddedorRemoved(){
+    this.bindUserGrid();
+  }
+
+  navigateToFeed(){
+    this._router.navigate(['/Feed', this.communityID])
+  }
+
+  searchUsers() {
 
   }
 

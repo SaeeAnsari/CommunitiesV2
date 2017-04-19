@@ -1,9 +1,19 @@
-<a  class="list-group-item" (click)="userSelected()">
-    <span [ngClass]="displayCheckmark()" aria-hidden="true">
-        <p class="list-group-item-text">
-            <img src='{{Image}}' alt="" />
-            </p>
-            <h4 class="list-group-item-heading"> {{Name}} </h4>
-   </span>
 
-</a>
+
+<div class="memmber_group" >
+  <div class="single_item" >
+    <div (click)="navigate()"><img src="{{Image}}" alt="meber flaug" ></div>
+    <div class="content" >
+      <div (click)="navigate()"><h3 >{{Name}}</h3></div>
+    </div>
+
+
+    <div *ngIf="AlreadyMember == 'false'">
+      <button class="btn btn-link" (click)="addUserToCommunity()">Add</button>
+    </div>
+
+    <div *ngIf="AlreadyMember == 'true'">
+      <button class="btn btn-link" (click)="removeUserFromCommunity()">Remove</button>
+    </div>
+  </div>
+</div>

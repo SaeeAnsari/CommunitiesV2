@@ -1,33 +1,32 @@
-<div class="container">
-  <section id="header">
-    <h2>Users</h2>
-  </section>
-  <section id="searchUsers" class="col-md-12  well">
-    <br><br>
-    <div class="col-md-8">
-      <div class="CommentPost">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for..." [(ngModel)]="searchVal">
-          <span class="input-group-btn">
-             <button class="btn btn-default" type="button" (click)="bindUserGrid()">Go!</button>     
-          </span>
+
+<!-- 
+		Header
+	========================================= -->
+<header>
+  <div class="container headerText">
+    Add Friends<div class="AddIconRight" (click)="navigateToFeed()"><i class="fa fa-check-circle" aria-hidden="true"></i></div>
+  </div>
+
+</header>
+<!-- 
+		Friends List
+	========================================= -->
+<section id="communiti_list">
+  <div class="container">
+    <div class="login_form">
+      <form action="#" method="post">
+        <div class="search_feild">
+          <input class="form-control" type="search" name="search" id="search" value="" placeholder="Search for..." [(ngModel)]="searchVal"
+            [formControl]="searchInput">
+          <button type="submit"><i class="fa fa-search" (click)="searchUsers()"></i></button>
         </div>
-      </div>
+      </form>
     </div>
-    <div class="col-md-4">
-      <button id="addUser" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;Add User</button>
+
+
+    <div *ngFor="let item of userItems">
+        <user-search-item ID="{{item.id}}" Name='{{item.firstName + " " + item.lastName}}' Image='{{item.imageURL}}' AlreadyMember='{{item.alreadyMember}}'
+        (UserAction)="userAddedorRemoved()"></user-search-item>     
     </div>
-  </section>
-
-  <br><br><br><br>
-
-  <section id="searchList well">
-    <div>
-      <div *ngFor="let item of userItems">
-        <user-search-item ID="{{item.id}}" Name='{{item.firstName + " " + item.lastName}}' Image=''></user-search-item>
-      </div>
-    </div>
-  </section>
-</div>
-
-
+  </div>
+</section>

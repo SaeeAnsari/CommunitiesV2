@@ -70,14 +70,12 @@ export class CommunityComponent implements OnInit {
 
     this._communityService.SaveCommunity(model)
     .subscribe(sub=>{
-      var x = 0;
-      x = 22;
       
       this.id = sub;
 
       
 
-      this._router.navigate(['/UserSearch']);
+      this._router.navigate(['/UserSearch', this.id]);
 
     })
   }  
