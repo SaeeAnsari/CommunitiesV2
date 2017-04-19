@@ -1,21 +1,21 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
+import {StoryService} from '../services/story.service';
 
 import { UserService } from '../services/user.service';
 import { UserPost } from '../interfaces/user-post';
-import { UserPostService } from '../services/user-post.service';
 
 @Component({
   selector: 'newPost',
   templateUrl: './new-post-component.component.html',
   styleUrls: ['../../css/responsive.css', '../../css/style.css'],
-  providers: [UserService]
+  providers: [UserService, StoryService]
 })
 export class NewPostComponentComponent implements OnInit {
   private currentUser;
   private postForm: FormGroup;
 
-  constructor(private _fb: FormBuilder, private _userService: UserService) { }
+  constructor(private _fb: FormBuilder, private _userService: UserService, private _storyService: StoryService) { }
 
 
 
@@ -31,6 +31,6 @@ export class NewPostComponentComponent implements OnInit {
   }
 
   post(model: UserPost, isValid: boolean) {
-    UserPostService.SavePost(model, isValid);
+    StoryService.SavePost(model, isValid);
   }
 }

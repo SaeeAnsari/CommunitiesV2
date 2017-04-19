@@ -2,18 +2,18 @@
 
 <div class="memmber_group" >
   <div class="single_item" >
-    <div (click)="navigate()"><img src="{{Image}}" alt="meber flaug" ></div>
+    <div ><img src="{{Image}}"  ></div>
     <div class="content" >
-      <div (click)="navigate()"><h3 >{{Name}}</h3></div>
+      <div ><h3 >{{Name}}</h3></div>
     </div>
 
 
     <div *ngIf="AlreadyMember == 'false'">
-      <button class="btn btn-link" (click)="addUserToCommunity()">Add</button>
+      <button class="btn btn-link" (click)="addUserToCommunity();event.preventDefault();">Add</button>
     </div>
 
     <div *ngIf="AlreadyMember == 'true'">
-      <button class="btn btn-link" (click)="removeUserFromCommunity()">Remove</button>
+      <button class="btn btn-link" (click)="removeUserFromCommunity();event.preventDefault();">Remove</button>
     </div>
   </div>
 </div>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Story } from '../interfaces/story';
 import { Http, Response, Headers, RequestOptions, URLSearchParams } from '@angular/http';
+import { UserPost } from '../interfaces/user-post';
 
 
 import { Observable } from 'rxjs/Observable';
@@ -59,4 +60,18 @@ export class StoryService {
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
+
+  GetStoriesByCommunity(communityID: number, pageIndex: number):Observable<any> {
+    
+    return this._http.get(this._url + '?communityID=' + communityID + '&pageIndex=' + pageIndex)
+      .map(post => post.json())
+      .catch(this.handleError);
+  }
+
+  public static SavePost(model: UserPost, isValid: boolean) {
+    console.log(model);
+  }
+
+ 
+
 }
