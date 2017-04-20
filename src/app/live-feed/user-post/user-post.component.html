@@ -1,4 +1,6 @@
 <div class="feed_post_content">
   <p>{{PostMessage}}</p>
-  <img src="{{PostMediaURL}}" alt="feed post photo" (click) = "openMessages()">
+  <div *ngIf="PostMediaURL">
+  <img src="{{PostMediaURL}}"  (click) = "openMessages()">
+</div>
 </div>

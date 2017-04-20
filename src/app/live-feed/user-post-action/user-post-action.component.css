@@ -9,7 +9,7 @@
     display: inline-block;
     padding-right: 10px;
 }
-.post_like a {
+.post_like button {
     color: #333333;
     display: block;
     font-size: 18px;
@@ -17,15 +17,15 @@
     -webkit-transition: .5s;
     transition: .5s;
 }
-.post_like a i.fa {
+.post_like button i.fa {
 	color: #07e5d8;
 	font-size: 25px;
 	padding-right: 5px;
 	-webkit-transition: .5s;
 	transition: .5s;
 }
-.post_like a:hover,
-.post_like a:hover i.fa{
+.post_like button:hover,
+.post_like button:hover i.fa{
   color: #9d9d9d;
 }
 
