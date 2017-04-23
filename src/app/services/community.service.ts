@@ -5,6 +5,7 @@ import { Http, Response, Headers, RequestOptions, URLSearchParams } from '@angul
 
 import { Observable } from 'rxjs/Observable';
 
+
 // Observable class extensions
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/throw';
@@ -25,6 +26,8 @@ export class CommunityService {
 
   private _baseURL = 'http://localhost:49520/api';
   private _url = 'http://localhost:49520/api/Community';
+  private _imageUploadURL = 'http://localhost:49520';
+
   private _communities: Community[] = [];
   headers: Headers;
   options: RequestOptions;
@@ -57,7 +60,7 @@ export class CommunityService {
   }
 
 
-  public SaveCommunity(community: Community): Observable<any> {
+  public SaveCommunity(community: Community, userID:number): Observable<any> {
 
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -69,8 +72,8 @@ export class CommunityService {
       JSON.stringify({
         Name: community.name,
         Description: community.description,
-        ImageURL: community.imageURL,
-        OwnerID: 1,
+        ImageURL: this._imageUploadURL + '/MediaUpload/Community/' + community.imageURL,
+        OwnerID: userID,
         Type: 2,
         ID: community.id
       }),

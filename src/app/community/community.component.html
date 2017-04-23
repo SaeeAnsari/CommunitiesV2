@@ -1,16 +1,17 @@
+<!-- Header -->
 
-  <!-- Header -->
-	<header>
-		<div class="container headerText">
-			Create a new Community
-      <div>Become the infinite possibilities that is you!</div>
-		</div>
-	</header>
+
+<header>
+  <div class="container headerText">
+    Add/ Modify a Community
+
+  </div>
+</header>
 
 <section id="communiti_list">
   <div class="container">
     <div class="communiti_form">
-      	<form [formGroup]="communityForm" novalidate (ngSubmit)="saveCommunity(communityForm.value, communityForm.valid)">
+      <form [formGroup]="communityForm" novalidate (ngSubmit)="saveCommunity(communityForm.value, communityForm.valid)">
         <div class="form-group">
 
           <label for="name"><i class="fa fa-users"></i> Name your Community</label>
@@ -20,10 +21,18 @@
           <label for="text_area"><i class="fa fa-file-text-o"></i> Describe your Community</label>
           <textarea class="form-control" id="description" placeholder="What will this community be about?" formControlName="description"></textarea>
         </div>
-        <div class="file-upload form-group">
-          <label for="exampleInputFile"><i class="fa fa-picture-o"></i> Add Cover Photo</label>
-          <input type="file" id="exampleInputFile">          
+
+
+        <div class="form-group">
+          <label for="text_area"><i class="fa fa-camera"></i> Uplaod a picture </label>
+          <div class="fileUpload btn btn-primary">
+            <span>{{uploadMessage}}</span>
+            <input type="file" class="upload" (change)="fileChange($event)" />
+          </div>
+          <div *ngIf="uploaded">Uploaded! ready to save</div>
         </div>
+
+
         <button type="submit" class="btn btn-default">Next <i class="fa fa-arrow-circle-o-right"></i></button>
       </form>
       <div class="Pagination">
@@ -39,36 +48,13 @@
     </div>
   </div>
 </section>
-<!--
-<footer>
-		<div class="container">
-			<ul>
-				<li><a href="#"><i class="fa fa-rss"></i></a></li>
-				<li><a href="#"><i class="fa fa-users"></i></a></li>
-				<li><a href="#"><i class="fa fa-list"></i></a></li>
-				<li>
-					<a href="#"><i class="fa fa-comment"></i>
-						<span class="comment_count">1</span>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</footer>
+<div *ngIf="isUploadingImage">
+  <div id="loadingOverlay" class="loader-overlay">
+    <div class="loader-content loader-center">
+      Uploading Please wait!..
+      <sk-chasing-dots></sk-chasing-dots>
 
--->
+    </div>
+  </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>

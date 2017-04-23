@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { ChasingDotsComponent} from 'ng2-spin-kit/app/spinners'
+
 
 import { AppComponent } from './app.component';
 import { NewPostComponentComponent } from './new-post-component/new-post-component.component';
@@ -73,7 +75,8 @@ import { FooterComponent } from './footer/footer.component';
     UserPostComponent,
     UserPostActionComponent,
     UserCommentsComponent,
-    FooterComponent
+    FooterComponent,
+    ChasingDotsComponent
   ],
   imports: [
     BrowserModule,

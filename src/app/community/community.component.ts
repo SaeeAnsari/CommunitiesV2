@@ -4,6 +4,11 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { ActivatedRoute, RouterModule, Router } from '@angular/router';
 
 import { CommunityService } from '../services/community.service'
+import { MediaPostService } from '../services/media-post.service';
+import { UserService } from '../services/user.service';
+
+import { Http, RequestOptions, Headers, Response } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
 
 
 
@@ -13,18 +18,25 @@ import { Community } from '../interfaces/community';
   selector: 'community-add-edit',
   templateUrl: './community.component.html',
   styleUrls: ['./community.component.css'],
-  providers: [CommunityService]
+  providers: [CommunityService, MediaPostService, UserService]
 })
 export class CommunityComponent implements OnInit {
   public communityForm: FormGroup;
   public events: any[] = []; // use later to display form changes
   //private communityService = new CommunityService();
 
-  constructor(private _fb: FormBuilder, private _communityService: CommunityService, private _route: ActivatedRoute, private _router:Router) { }
+  constructor(private _fb: FormBuilder, private _communityService: CommunityService, private _route: ActivatedRoute, private _router: Router,
+    private http: Http, private _mediaPost: MediaPostService, private _userService: UserService) {
+
+  }
 
   private id: number;
   name: string;
   private subscription;
+  private isUploadingImage = false;
+  private communityImage: string = '';
+  private uploadMessage: string = '';
+  private uploaded: boolean = false;
 
   ngOnInit() {
     this.communityForm = this._fb.group({
@@ -39,6 +51,8 @@ export class CommunityComponent implements OnInit {
     });
 
     this.loadCommunity();
+
+
   }
 
   loadCommunity() {
@@ -47,6 +61,11 @@ export class CommunityComponent implements OnInit {
         this.communityForm.controls['name'].setValue(sub.Name);
         this.communityForm.controls['description'].setValue(sub.Description);
       });
+
+      this.uploadMessage = "Update?";
+    }
+    else {
+      this.uploadMessage = "Upload a Picture.."
     }
   }
 
@@ -68,15 +87,38 @@ export class CommunityComponent implements OnInit {
       model.id = this.id;
     }
 
-    this._communityService.SaveCommunity(model)
-    .subscribe(sub=>{
-      
-      this.id = sub;
+    if (this.communityImage != undefined && this.communityImage.length > 0) {
+      model.imageURL = this.communityImage;
+    }
 
-      
+    this._userService.getLoggedinInUser().subscribe(s => {
+      let userID = s.ID;
 
-      this._router.navigate(['/UserSearch', this.id]);
+      this._communityService.SaveCommunity(model, userID)
+        .subscribe(sub => {
+          this.id = sub;
+          this._router.navigate(['/UserSearch', this.id]);
+        })
+    });
+  }
 
-    })
-  }  
+  fileChange(event) {
+    this.isUploadingImage = true;
+
+    let fileList: FileList = event.target.files;
+    if (fileList.length > 0) {
+      let file: File = fileList[0];
+      let formData: FormData = new FormData();
+      formData.append('uploadFile', file, file.name);
+
+
+      this._mediaPost.postMedia(formData).subscribe(sub => {
+        this.uploaded = true;
+        this.isUploadingImage = false;
+        this.loadCommunity();
+
+        this.communityImage = sub;
+      });
+    }
+  }
 }

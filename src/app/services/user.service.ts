@@ -29,6 +29,7 @@ export class UserService {
       .map(ret => ret.json());
   }
 
+  private isUploadingImage = false;
   private _url = 'http://localhost:49520/api/User';
   private _users: User[] = [];
   headers: Headers;

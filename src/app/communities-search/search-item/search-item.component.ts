@@ -18,6 +18,7 @@ export class SearchItemComponent implements OnInit {
   @Input() BodyText = "";
   @Input() ID;
   @Input() Member;
+  @Input() ImageURL;
 
   @Output() CommunityChanged = new EventEmitter();
 
@@ -30,6 +31,11 @@ export class SearchItemComponent implements OnInit {
                 private router: Router) { }
 
   ngOnInit() {
+
+    if(this.ImageURL == undefined || this.ImageURL == ""){
+      this.ImageURL = "https://cdn2.iconfinder.com/data/icons/flat-ui-free/128/Chat.png";
+    }
+
     if (this.Member == "true") {
       this.buttonText = "View"
     }

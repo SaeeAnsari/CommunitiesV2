@@ -23,7 +23,7 @@
 
 
     <div *ngFor="let item of searchItems">
-      <app-search-item ID={{item.id}} HeaderText={{item.name}} BodyText={{item.description}} Member={{item.isMember}} (CommunityChanged)="userJoinedCommunity()"></app-search-item>
+      <app-search-item ID={{item.id}} HeaderText={{item.name}} BodyText={{item.description}} Member={{item.isMember}} ImageURL={{item.imageURL}} (CommunityChanged)="userJoinedCommunity()"></app-search-item>
     </div>
   </div>
 </section>
