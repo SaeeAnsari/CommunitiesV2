@@ -15,7 +15,15 @@ export class UserTagComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+    console.log(this.ID);
+    console.log(this.ImageURL);
     
   }
 
+  externalLoadUser(userID: number, displayName: string, ImageURL: string){
+    this.ID = userID;
+    this.Name = displayName;
+    this.ImageURL = ImageURL;
+  }
 }
