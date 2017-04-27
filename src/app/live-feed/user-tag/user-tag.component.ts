@@ -25,5 +25,5 @@ export class UserTagComponent implements OnInit {
     this.ID = userID;
     this.Name = displayName;
     this.ImageURL = ImageURL;
-  }
+  } 
 }

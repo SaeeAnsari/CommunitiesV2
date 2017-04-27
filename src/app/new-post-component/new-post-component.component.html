@@ -7,35 +7,34 @@
       <div class="post-top">
         &nbsp;
       </div>
+
+      <div class="form-group">
+        <label for="name"><i class="fa fa-users"></i> Select your Communities</label>
+        <ss-multiselect-dropdown [options]="myOptions" [(ngModel)]="optionsModel" (ngModelChange)="onChange($event)" [texts]="myTexts" [settings]="mySettings"></ss-multiselect-dropdown>
+      </div>
+      
       <div class="post-body">
         <div class="post-text">
-          <textarea class="form-control textArea" rows="3" placeholder="Whats on your mind?"></textarea>
+          <textarea class="form-control textArea" rows="3" placeholder="Whats on your mind?" [(ngModel)]="postText"></textarea>
         </div>
       </div>
 
       <div class="form-group">
 
-        <div class="fileUpload btn btn-primary">
+        <div class="fileUpload btn btn-primary" *ngIf="!videoSelected">
           <span><i class="fa fa-camera" aria-hidden="true"></i></span>
-          <input type="file" class="upload" (change)="fileChange($event)" />
+          <input type="file" class="upload" (change)="imageFileChange($event)" />
         </div>
-        <div *ngIf="uploaded">Uploaded! ready to save</div>
 
-         <div class="fileUpload btn btn-primary">
+
+        <div class="fileUpload btn btn-primary" *ngIf="!imageSelected">
           <span><i class="fa fa-video-camera" aria-hidden="true"></i></span>
-          <input type="file" class="upload" (change)="fileChange($event)" />
+          <input type="file" class="upload" (change)="videoFileChange($event)" />
         </div>
-        <div *ngIf="uploaded">Uploaded! ready to save</div>
 
-        <div class="fileUpload  pull-right"><button type="submit" class="btn btn-primary ">Go <i class="fa fa-check" aria-hidden="true"></i></button></div>
-
-
+        <div class="fileUpload  pull-right"><button type="submit" class="btn btn-primary" [disabled]="isUploadingImage" (click)="post()">Go <i class="fa fa-check" aria-hidden="true"></i></button></div>
       </div>
-
-
-
-
-      
+      <div *ngIf="uploaded">Uploaded! ready to save</div>
     </div>
   </div>
 </section>

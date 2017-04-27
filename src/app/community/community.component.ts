@@ -112,7 +112,7 @@ export class CommunityComponent implements OnInit {
       formData.append('uploadFile', file, file.name);
 
 
-      this._mediaPost.postMedia(formData).subscribe(sub => {
+      this._mediaPost.postImage(formData, 'Community').subscribe(sub => {
         this.uploaded = true;
         this.isUploadingImage = false;
         this.loadCommunity();

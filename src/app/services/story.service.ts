@@ -24,6 +24,7 @@ import 'rxjs/add/operator/switchMap';
 export class StoryService {
 
   private _url = 'http://localhost:49520/api/Story';
+  private _uploadURL = 'http://localhost:49520';
   headers: Headers;
 
   constructor(private _http: Http) {
@@ -61,17 +62,58 @@ export class StoryService {
     return Observable.throw(errMsg);
   }
 
-  GetStoriesByCommunity(communityID: number, pageIndex: number):Observable<any> {
-    
+  GetStoriesByCommunity(communityID: number, pageIndex: number): Observable<any> {
+
     return this._http.get(this._url + '?communityID=' + communityID + '&pageIndex=' + pageIndex)
       .map(post => post.json())
       .catch(this.handleError);
   }
 
-  public static SavePost(model: UserPost, isValid: boolean) {
-    console.log(model);
+  SavePost(userID: number, postText: string, mediaType: string, mediaName: string, selectedCommunities: number[]): Observable<any> {
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    let id: number;
+    let videoTag;
+    let imageURL = '';
+
+    if (mediaType == "Video") {
+      videoTag = {
+        ID: -1,
+        VideoIdentifier: this._uploadURL + '/MediaUpload/Story/' + mediaName,
+        HostProvider: 1
+      }
+    }
+    else {
+      videoTag = {
+        ID: -1,
+        VideoIdentifier: '',
+        HostProvider: 0
+      };
+      imageURL = this._uploadURL + '/MediaUpload/Story/Thumb/' + mediaName;
+    }
+
+
+
+    let data = {
+      ID: -1,
+      UserID: userID,
+      LongDescription: postText,
+      Video: videoTag,
+      CommunityIDs: [],
+      ImageURL: imageURL
+
+    };
+    if (selectedCommunities.length > 0) {
+      data.CommunityIDs = selectedCommunities;
+    }
+
+    return this._http.post(
+      this._url + '/InsertStory',
+      data
+      ,
+      { headers: this.headers }
+    ).map(res => res.json())
+      .catch(this.handleError)
   }
-
- 
-
 }

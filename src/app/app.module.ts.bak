@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ChasingDotsComponent} from 'ng2-spin-kit/app/spinners'
-import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
 
 
 import { AppComponent } from './app.component';
@@ -88,8 +87,7 @@ import { ComposePostComponent } from './compose-post/compose-post.component';
     HttpModule,
     MasonryModule,
     routing,
-    NgbModule.forRoot(),
-    MultiselectDropdownModule
+    NgbModule.forRoot()
   ],
   entryComponents: [UserCommentsComponent],
   providers: [ UserSearchService],

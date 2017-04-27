@@ -22,16 +22,27 @@ export class MediaPostService {
 
   constructor(private _http: Http) { }
 
-  private _url = 'http://localhost:49520/api/MediaUpload/UploadCommunityPicture';
+  private _url = 'http://localhost:49520/api/ImageUpload';
 
-  postMedia(formData): Observable<any> {
+  postImage(formData, type:string): Observable<any> {
     let headers = new Headers()
-    //headers.append('Content-Type', 'json');  
-    //headers.append('Accept', 'application/json');  
+  
     let options = new RequestOptions({ headers: headers });
     
-    return this._http.post(this._url, formData, options)
+    return this._http.post('http://localhost:49520/api/ImageUpload/UploadImage?type=' + type, formData, options)
+      .map(res => res.json())
+      .catch(error => Observable.throw(error))
+  }
+
+  postVideo(formData){
+    let headers = new Headers()
+    
+    let options = new RequestOptions({ headers: headers });
+    
+    return this._http.post('http://localhost:49520/api/VideoUpload/UploadVideo', formData, options)
       .map(res => res.json())
       .catch(error => Observable.throw(error))
   }
 }
+
+
