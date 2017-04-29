@@ -1,4 +1,5 @@
 
+
 footer {
   background: #fff none repeat scroll 0 0;
   bottom: 0;
@@ -8,11 +9,14 @@ footer {
 }
 footer ul {
     overflow: hidden;
+    list-style-type: none;
+    padding: 0;
 }
 footer ul li {
     float: left;
     text-align: center;
     width: 20%;
+    
 }
 footer ul li a {
     color: #333333;
@@ -41,7 +45,11 @@ footer li a span.comment_count {
     width: 20px;
 }
 
-
 footer div{
     border-top: 1px solid #f70b0b;
+}
+
+.container{
+	max-width: 768px;
+	margin: auto;
 }
