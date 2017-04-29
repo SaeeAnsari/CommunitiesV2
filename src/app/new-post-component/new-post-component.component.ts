@@ -111,6 +111,14 @@ export class NewPostComponentComponent implements OnInit {
         this.optionsModel.push(this.user.defaultCommunityID);
 
         if (this.user.defaultCommunityID > 0) {
+
+          let activeCommunity = this.user.defaultCommunityID;
+
+          if(sessionStorage.getItem("activeCommunity") != null){
+            
+            activeCommunity = +sessionStorage.getItem("activeCommunity")
+          }
+
           let link = ['/Feed/' + this.user.defaultCommunityID];
           this.router.navigate(link);
         }

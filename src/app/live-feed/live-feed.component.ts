@@ -24,6 +24,9 @@ export class LiveFeedComponent implements OnInit {
       if (params["communityID"]) {
         this.communityID = +params["communityID"];
         if (this.communityID > 0) {
+
+          sessionStorage.setItem("activeCommunity", this.communityID.toString());
+
           this.getCommunityDetails();
           this.loadStories();
         }
